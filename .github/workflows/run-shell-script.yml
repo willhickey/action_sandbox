@@ -1,0 +1,17 @@
+name: increment-cargo-version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check_compilation:
+    name: Increment cargo version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        id: build
+        shell: bash
+        run: |
+          echo "Running git status"
+          git status
+          echo "Finished git status"
