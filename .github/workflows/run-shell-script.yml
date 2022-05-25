@@ -8,10 +8,13 @@ jobs:
     name: Increment cargo version
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Build
         id: build
         shell: bash
         run: |
           echo "Running git status"
           git status
-          echo "Finished git status"
+          echo "another line" >> myfile
+          git status
