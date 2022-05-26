@@ -8,20 +8,20 @@ jobs:
     name: Increment cargo version
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Modify file
-        shell: bash
-        run: |
-          echo "Running git status"
-          echo "another line\n" >> myfile
-          git status
-      - name: Stage
-        run: git add .
-      - name: Commit
-        run: git commit -m "Add line to myfile"
-      - name: Push
-        run: git push origin HEAD:main
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
+      # - name: Modify file
+      #   shell: bash
+      #   run: |
+      #     echo "Running git status"
+      #     echo "another line\n" >> myfile
+      #     git status
+      # - name: Stage
+      #   run: git add .
+      # - name: Commit
+      #   run: git commit -m "Add line to myfile"
+      # - name: Push
+      #   run: git push origin HEAD:main
       # - name: Open PR
       #   uses: actions/github-script@v6
       #   id: pr
