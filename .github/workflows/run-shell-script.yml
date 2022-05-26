@@ -22,20 +22,23 @@ jobs:
         run: git commit -m "Add line to myfile"
       - name: Push
         run: git push origin HEAD:main
-      - name: Open PR
-        uses: actions/github-script@v6
-        id: pr
-        with:
-          script: |
-            const { repo, owner } = context.repo;
-            const result = await github.rest.pulls.create({
-              title: 'Update myfile',
-              owner,
-              repo,
-              head: '${{ github.ref_name }}',
-              base: 'main',
-              body: 'Just updating myfile'
-            });
-            github.rest.issues.addLabels({
-              labels: ['automerge']
-            });
+      # - name: Open PR
+      #   uses: actions/github-script@v6
+      #   id: pr
+      #   with:
+      #     script: |
+      #       const { repo, owner } = context.repo;
+      #       const result = await github.rest.pulls.create({
+      #         title: 'Update myfile',
+      #         owner,
+      #         repo,
+      #         head: '${{ github.ref_name }}',
+      #         base: 'main',
+      #         body: 'Just updating myfile'
+      #       });
+      #       github.rest.issues.addLabels({
+      #         labels: ['automerge']
+      #       });
+
+      --name: event_path
+        run: cat ${{ github.event_path }}
