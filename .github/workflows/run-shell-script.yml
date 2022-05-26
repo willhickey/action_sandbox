@@ -39,6 +39,5 @@ jobs:
       #       github.rest.issues.addLabels({
       #         labels: ['automerge']
       #       });
-
-      --name: event_path
+      - name: event_path
         run: cat ${{ github.event_path }}
